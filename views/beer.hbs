@@ -1,0 +1,8 @@
+{{> baseinfo beer}}
+<h3>Food Pairings</h3>
+<ul>
+    {{#each beer.food_pairing}}
+        <li>{{this}}</li>
+    {{/each}}
+</ul>
+<p>{{beer.brewers_tips}}</p>
