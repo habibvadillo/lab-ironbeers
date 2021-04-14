@@ -25,8 +25,8 @@ app.get('/', (req, res) => {
 app.get('/beers', (req, res) => {
   punkAPI
     .getBeers()
-    .then(beersFromApi => {
-      res.render('beers', { beers: beersFromApi });
+    .then(beers => {
+      res.render('beers', { beers });
     })
     .catch(error => console.log(error));
 });
@@ -34,8 +34,8 @@ app.get('/beers', (req, res) => {
 app.get('/random-beer', (req, res) => {
   punkAPI
     .getRandom()
-    .then(responseFromAPI => {
-      res.render('beer', { beer: responseFromAPI[0] });
+    .then(beer => {
+      res.render('beer', { beer: beer[0] });
     })
     .catch(error => console.log(error));
 });
@@ -46,7 +46,6 @@ app.get('/beers/:beerId', (req, res) => {
     .then(beer => {
       res.render('beer', { beer: beer[0] });
     })
-
     .catch(error => console.log(error));
 });
 
